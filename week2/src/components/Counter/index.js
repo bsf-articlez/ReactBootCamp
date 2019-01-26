@@ -9,9 +9,22 @@ class Counter extends Component {
     };
   }
 
+  componentDidUpdate = prevProps => {
+    if (prevProps.label !== this.props.label) {
+      this.setState({ label: this.props.label });
+    }
+    // console.log("componentDidUpdate", this.state.name);
+    // console.log("prevProps", nextState.name);
+  };
+
   render() {
     const { label } = this.state;
-    return <span>{label}</span>;
+    return (
+      <div>
+        <span>{label}</span>
+        <br />
+      </div>
+    );
   }
 }
 

@@ -12,12 +12,19 @@ class App extends Component {
     };
   }
 
+  increment = () => {
+    this.setState(({ count }) => ({
+      count: count + 1
+    }));
+    //this.setState({ count: this.state.count + 1 });
+  };
+
   render() {
     const { count } = this.state;
     return (
       <div className="App">
         <Counter label={count} />
-        <Button count={count} />
+        <Button handle={this.increment} count={count} />
       </div>
     );
   }
