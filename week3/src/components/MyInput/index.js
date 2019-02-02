@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 
 class MyInput extends Component {
   render() {
-    const { value, onClear, onChange } = this.props;
+    const { value, onClear, onChange, onEnter } = this.props;
     return (
       <MyInputWrapper>
         <ClearButton onClick={onClear}>clear</ClearButton>
-        <MyInputStyled value={value} onChange={onChange} />
+        <MyInputStyled value={value} onChange={onChange} onKeyDown={onEnter} />
       </MyInputWrapper>
     );
   }

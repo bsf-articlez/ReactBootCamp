@@ -5,6 +5,7 @@ const MyInputStyled = styled.input`
   margin: 10px;
   border: 1px solid blue;
   border-radius: 4px;
+  width: 100%;
 `;
 
 const MyInputWrapper = styled.div`

@@ -1,9 +1,16 @@
 import React, { Component } from "react";
-import MyInput from "../../components/MyInput";
+import TodoListComponent from "../../components/TodoList";
 
 class TodoList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: ""
+    };
+  }
+
   render() {
-    return <MyInput />;
+    return <TodoListComponent />;
   }
 }
 
