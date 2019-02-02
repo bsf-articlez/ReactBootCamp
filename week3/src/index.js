@@ -1,12 +1,73 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, { Component, PureComponent } from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class Normal extends Component {
+  componentDidUpdate() {
+    console.log("Normal componentDidUpdate");
+  }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  componentDidMount() {
+    console.log("Normal componentDidMount");
+  }
+
+  render() {
+    const { count } = this.props;
+    return <h1>Hello Component {count}</h1>;
+  }
+}
+
+class Pure extends PureComponent {
+  // shouldComponentUpdate = (nextProps, nextState) => {
+  //   return false
+  // }
+
+  componentDidMount() {
+    console.log("Pure ComponentDidMount");
+  }
+
+  componentDidUpdate() {
+    console.log("Pure Update");
+  }
+
+  render() {
+    const { count } = this.props;
+    return <h1>Hello Pure Component {count}</h1>;
+  }
+}
+
+const Diver = () => (
+  <div>
+    <App />
+  </div>
+);
+
+class App extends Component {
+  state = {
+    count: 0,
+    prepareCount: 0
+  };
+
+  setCount = () => {
+    this.setState({ count: this.state.prepareCount });
+  };
+  render() {
+    const { count, prepareCount } = this.state;
+    return (
+      <React.Fragment>
+        <Normal count={count} />
+        <Pure count={count} />
+
+        <input
+          value={prepareCount}
+          onChange={e => {
+            this.setState({ prepareCount: e.target.value });
+          }}
+        />
+        <button onClick={this.setCount}>save</button>
+      </React.Fragment>
+    );
+  }
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
