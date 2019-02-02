@@ -7,7 +7,7 @@ const MyInputStyled = styled.input`
   border-radius: 4px;
 `;
 
-const MyInputWrapper = styled.dic`
+const MyInputWrapper = styled.div`
   position: relative;
 `;
 

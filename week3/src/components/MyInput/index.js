@@ -6,10 +6,10 @@ class MyInput extends Component {
   render() {
     const { value, onClear, onChange } = this.props;
     return (
-      <MyInputStyled value={value} onChange={onChange}>
+      <MyInputWrapper>
         <ClearButton onClick={onClear}>clear</ClearButton>
-        <MyInputWrapper value={value} onChange={onChange} />
-      </MyInputStyled>
+        <MyInputStyled value={value} onChange={onChange} />
+      </MyInputWrapper>
     );
   }
 }
@@ -23,7 +23,8 @@ MyInput.defaultProps = {
 
 // For validation props
 MyInput.propTypes = {
-  value: PropTypes.string.isRequired,
+  //   value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onClear: PropTypes.func,
   onChange: PropTypes.func
 };
