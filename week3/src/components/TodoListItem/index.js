@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { TodoItemWrapper } from "./styled";
+import {
+  TodoItemWrapper,
+  TodoItemMessage,
+  TodoItemActionWrapper
+} from "./styled";
+import ActionButton from "../ActionButton";
 
 class TodoListItem extends Component {
   constructor(props) {
@@ -19,7 +24,14 @@ class TodoListItem extends Component {
 
   render() {
     const { todo } = this.state;
-    return <TodoItemWrapper>{todo.message}</TodoItemWrapper>;
+    return (
+      <TodoItemWrapper>
+        <TodoItemMessage>{todo.message}</TodoItemMessage>
+        <TodoItemActionWrapper>
+          <ActionButton />
+        </TodoItemActionWrapper>
+      </TodoItemWrapper>
+    );
   }
 }
 
