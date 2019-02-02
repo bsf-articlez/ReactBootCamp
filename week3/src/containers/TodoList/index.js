@@ -1,17 +1,20 @@
 import React, { Component } from "react";
 import TodoListComponent from "../../components/TodoList";
-
+import { withRouter } from "react-router-dom";
 class TodoList extends Component {
   constructor(props) {
     super(props);
+    console.log("todolist props", props);
+    const { message = "" } = props.match.params;
     this.state = {
-      message: ""
+      defaultTodoText: message
     };
   }
 
   render() {
-    return <TodoListComponent />;
+    const { defaultTodoText } = this.state;
+    return <TodoListComponent defaultTodoText={defaultTodoText} />;
   }
 }
 
-export default TodoList;
+export default withRouter(TodoList);
