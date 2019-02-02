@@ -7,4 +7,15 @@ const MyInputStyled = styled.input`
   border-radius: 4px;
 `;
 
-export { MyInputStyled };
+const MyInputWrapper = styled.dic`
+  position: relative;
+`;
+
+const ClearButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 0;
+  button: 0;
+`;
+
+export { MyInputStyled, MyInputWrapper, ClearButton };
