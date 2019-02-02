@@ -22,13 +22,32 @@ class TodoListItem extends Component {
     }
   };
 
+  onRemoveItem = () => {
+    const { todo } = this.state;
+    const { handleRemove } = this.props;
+    handleRemove(todo.id);
+  };
+
+  onEditItem = () => {
+    const { todo } = this.state;
+    const { handleEdit } = this.props;
+    handleEdit(todo.id);
+  };
+
   render() {
     const { todo } = this.state;
     return (
       <TodoItemWrapper>
-        <TodoItemMessage>{todo.message}</TodoItemMessage>
+        <TodoItemMessage>
+          {todo.id}: {todo.message}
+        </TodoItemMessage>
         <TodoItemActionWrapper>
-          <ActionButton />
+          <ActionButton
+            editable={true}
+            onEdit={this.onEditItem}
+            removeable={true}
+            onRemove={this.onRemoveItem}
+          />
         </TodoItemActionWrapper>
       </TodoItemWrapper>
     );

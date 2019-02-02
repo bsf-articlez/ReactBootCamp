@@ -2,10 +2,11 @@ import React from "react";
 import { ButtonWrapper, EditButton, RemoveButton } from "./styled";
 class Action extends React.Component {
   render() {
+    const { onEdit, onRemove, editable, removeable } = this.props;
     return (
       <ButtonWrapper>
-        <EditButton />
-        <RemoveButton />
+        {editable && <EditButton onClick={onEdit} />}
+        {removeable && <RemoveButton onClick={onRemove} />}
       </ButtonWrapper>
     );
   }
