@@ -22,5 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-
+week1/node_modules/*
 week2/node_modules/*
+week3/node_modules/*
+
+week1/build
+week2/build
+week3/build
