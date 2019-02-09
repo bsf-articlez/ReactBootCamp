@@ -24,14 +24,14 @@ const friendReducer = (state = initialState, action) => {
       let friend1Index = null;
       let friend2Index = null;
       const friend1 = state.find((person, i) => {
-        const isMatch = person.id === friendId;
+        const isMatch = person.id == friendId;
         if (isMatch) {
           friend1Index = i;
         }
         return isMatch;
       });
       const friend2 = state.find((person, i) => {
-        const isMatch = person.id === targetFrientId;
+        const isMatch = person.id == targetFrientId;
         if (isMatch) {
           friend2Index = i;
         }

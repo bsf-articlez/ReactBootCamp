@@ -3,6 +3,7 @@ import Counter from "../../components/Counter";
 import CounterHook from "../../components/CounterHooks";
 import { connect } from "react-redux";
 import { actionType, addFriend } from "../../stores/actions";
+import AddFriend from "../../components/AddFriend";
 
 class AppContainer extends Component {
   componentDidMount = () => {};
@@ -12,10 +13,15 @@ class AppContainer extends Component {
     console.log("friend: ", friend);
   };
 
+  onAddFriend = (friendId, targetFriendId) => {
+    const { addFriend } = this.props;
+    addFriend(friendId, targetFriendId);
+  };
+
   render() {
     return (
       <div>
-
+        <AddFriend onAddFriend={this.onAddFriend} />
       </div>
     );
   }
