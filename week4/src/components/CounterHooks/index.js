@@ -4,12 +4,17 @@ import React, { useEffect, useState } from "react";
 
 const initial = 0;
 
-const increseCount = setter => () => {
+export function useCount(initial) {
+  const [count, setSount] = useState(initial);
+  return [count, setSount];
+}
+
+export const increseCount = setter => () => {
   setter(state => state + 1);
 };
 
 function CounterHook() {
-  const [count, setCount] = useState(initial);
+  const [count, setCount] = useCount(initial);
   return (
     <div>
       <span>{count}</span>
