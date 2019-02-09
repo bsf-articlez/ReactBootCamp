@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import Counter from "../../components/Counter";
+import CounterHook from "../../components/CounterHooks";
 
 class AppContainer extends Component {
   render() {
-    return <h1>Hello world</h1>;
+    return (
+      <div>
+        <Counter />
+        <CounterHook />
+      </div>
+    );
   }
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Couter extends Component {
+class Counter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,4 +25,4 @@ class Couter extends Component {
   }
 }
 
-export default Couter;
+export default Counter;
