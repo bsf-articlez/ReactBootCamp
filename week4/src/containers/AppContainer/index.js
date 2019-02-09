@@ -2,22 +2,20 @@ import React, { Component } from "react";
 import Counter from "../../components/Counter";
 import CounterHook from "../../components/CounterHooks";
 import { connect } from "react-redux";
+import { actionType, addFriend } from "../../stores/actions";
 
 class AppContainer extends Component {
-  componentDidMount = () => {
+  componentDidMount = () => {};
+
+  componentDidUpdate = () => {
     const { friend } = this.props;
     console.log("friend: ", friend);
   };
+
   render() {
     return (
       <div>
-        <span>No Hook</span>
-        <Counter />
-        <br />
-        <br />
-        <br />
-        <span>With Hook</span>
-        <CounterHook />
+
       </div>
     );
   }
@@ -27,4 +25,13 @@ const mapStateToProps = ({ friend }) => ({
   friend
 });
 
-export default connect(mapStateToProps)(AppContainer);
+const mapDispatchToProps = dispatch => {
+  return {
+    addFriend: addFriend(dispatch)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppContainer);
