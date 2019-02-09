@@ -1,6 +1,5 @@
 const actionType = {
-  ADD_FRIEND: "ADD_FRIEND",
-  EDIT_FRIEND: "EDIT_FRIEND"
+  ADD_FRIEND: "ADD_FRIEND"
 };
 
 const addFriend = dispatch => (friendId, targetFriendId) => {

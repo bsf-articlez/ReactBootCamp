@@ -2,14 +2,14 @@ import { actionType } from "../../actions";
 
 const initialState = [
   {
-    id: "1",
+    id: 1,
     firstName: "Peter",
     lastName: "Parker",
     age: 20,
     friends: []
   },
   {
-    id: "2",
+    id: 2,
     firstName: "Steve",
     lastName: "Roger",
     age: 100,
@@ -20,7 +20,7 @@ const initialState = [
 const friendReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionType.ADD_FRIEND: {
-      const { friendId, targetFrientId } = action.payload;
+      const { friendId, targetFriendId } = action.payload;
       let friend1Index = null;
       let friend2Index = null;
       const friend1 = state.find((person, i) => {
@@ -31,16 +31,16 @@ const friendReducer = (state = initialState, action) => {
         return isMatch;
       });
       const friend2 = state.find((person, i) => {
-        const isMatch = person.id == targetFrientId;
+        const isMatch = person.id == targetFriendId;
         if (isMatch) {
           friend2Index = i;
         }
         return isMatch;
       });
       if (!friend1 || !friend2) {
-        return false;
+        return state;
       }
-      friend1.friends.push(targetFrientId);
+      friend1.friends.push(targetFriendId);
       friend2.friends.push(friendId);
       let newState = [...state];
       newState[friend1Index] = friend1;
