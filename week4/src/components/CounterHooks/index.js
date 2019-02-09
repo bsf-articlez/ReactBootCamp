@@ -10,7 +10,7 @@ export function useCount(initial) {
 }
 
 export const increseCount = setter => () => {
-  setter(state => state + 1);
+  setter(count => count + 100);
 };
 
 function CounterHook() {

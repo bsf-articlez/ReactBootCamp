@@ -6,7 +6,12 @@ class AppContainer extends Component {
   render() {
     return (
       <div>
+        <span>No Hook</span>
         <Counter />
+        <br />
+        <br />
+        <br />
+        <span>With Hook</span>
         <CounterHook />
       </div>
     );
