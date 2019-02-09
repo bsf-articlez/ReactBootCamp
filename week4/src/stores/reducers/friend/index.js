@@ -45,7 +45,7 @@ const friendReducer = (state = initialState, action) => {
       let newState = [...state];
       newState[friend1Index] = friend1;
       newState[friend2Index] = friend2;
-      return {};
+      return newState;
     }
     default: {
       return state;
