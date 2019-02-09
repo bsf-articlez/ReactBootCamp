@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MyInput from "../MyInput";
 import TodoListItem from "../TodoListItem";
 import { TodoListWrapper } from "./styled";
+import DeleteAllButton from "../DeleteAllButton";
 
 const renderTodoItem = (todos, handleEdit, handleRemove) => {
   return todos.map((todo, i) => (
@@ -22,6 +23,12 @@ class TodoList extends Component {
       todos: []
     };
   }
+
+  deleteAllItem = () => {
+    if (window.confirm("You want delete all Item !!")) {
+      this.setState({ todos: [] });
+    }
+  };
 
   clearMessage = () => {
     this.setState({ message: "" });
@@ -50,9 +57,11 @@ class TodoList extends Component {
   };
 
   removeById = id => {
-    const { todos } = this.state;
-    const newTodos = todos.filter(todo => todo.id !== id);
-    this.setState({ todos: newTodos });
+    if (window.confirm("You want delete this Item !!")) {
+      const { todos } = this.state;
+      const newTodos = todos.filter(todo => todo.id !== id);
+      this.setState({ todos: newTodos });
+    }
   };
   editById = id => {
     const { todos } = this.state;
@@ -77,9 +86,10 @@ class TodoList extends Component {
     const { message, todos } = this.state;
     return (
       <TodoListWrapper>
+        <DeleteAllButton onDeleteAll={this.deleteAllItem} />
         <MyInput
           value={message}
-          onclear={this.clearMessage}
+          onClear={this.clearMessage}
           onChange={this.handleMessage}
           onEnter={this.onPushTodo}
         />
