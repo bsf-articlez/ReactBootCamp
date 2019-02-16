@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --config=./webpack/config.dev.js --hot --inline"
+    "dev": "webpack-dev-server --config=./webpack/config.dev.js --hot --inline",
+    "build": "webpack --config=./webpack/config.prod.js"
   },
   "dependencies": {
     "react": "16.8.2",
