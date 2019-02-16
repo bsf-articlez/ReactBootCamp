@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --config=./webpack/config.dev.js --hot --inline",
-    "build": "webpack --config=./webpack/config.prod.js"
+    "build": "webpack --config=./webpack/config.prod.js",
+    "storybook": "start-storybook -c=./src/.stories -p 3001"
   },
   "dependencies": {
     "@storybook/react": "^4.1.11",
