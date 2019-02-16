@@ -8,6 +8,7 @@
     "build": "webpack --config=./webpack/config.prod.js"
   },
   "dependencies": {
+    "@storybook/react": "^4.1.11",
     "react": "16.8.2",
     "react-dom": "16.8.2"
   },
