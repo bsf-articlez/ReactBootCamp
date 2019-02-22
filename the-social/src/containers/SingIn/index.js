@@ -17,11 +17,10 @@ function onSigin(username, password) {
         alert("Username or password incorrect!!!");
       }
     } catch (err) {
-      if(err.hasOwnProperty('response')){
+      if (err.hasOwnProperty("response")) {
         alert(err.response.error.message);
       }
     }
-    
   };
 }
 
@@ -45,8 +44,12 @@ function SignIn() {
           label="Password"
           onChange={e => setPassword(e.target.value)}
         />
-        <Button type="submit">SignIn</Button>
-        <Button type="button">SignUp</Button>
+        <Button type="submit" color="primary">
+          SignIn
+        </Button>
+        <Button type="button" color="primary">
+          SignUp
+        </Button>
       </form>
     </div>
   );
