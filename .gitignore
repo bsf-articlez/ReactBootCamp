@@ -29,8 +29,11 @@ week2/node_modules/*
 week3/node_modules/*
 week4/node_modules/*
 react-webpack-week5/node_modules/*
+the-social/node_modules/*
 
 week1/build/*
 week2/build/*
 week3/build/*
 week4/build/*
+react-webpack-week5/build/*
+the-social/build/*
