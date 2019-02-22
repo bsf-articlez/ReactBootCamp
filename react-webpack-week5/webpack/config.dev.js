@@ -15,7 +15,7 @@ module.exports = (env, args) => {
       rules: [
         {
           test: /\.(jsx?)$/, ///\.(js|jsx)$/
-          exclude: /node_modules/,
+          exclude: [/node_modules/],
           loader: "babel-loader",
           options: {
             presets: [
@@ -31,6 +31,11 @@ module.exports = (env, args) => {
               "@babel/preset-react"
             ]
           }
+        },
+        {
+          test: /\.(css)$/,
+          exclude: /node_modules/,
+          use: ["style-loader", "css-loader"]
         }
       ]
     },
@@ -44,6 +49,9 @@ module.exports = (env, args) => {
       hot: true,
       inline: true,
       port: 3000
+    },
+    resolve: {
+      modules: ["node_modules", path.resolve(__dirname, '../src')]
     }
   };
 };

@@ -1,10 +1,11 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Button from 'components/Button';
 
 function App() {
-  return <h1>Hello React.js with my own webpack</h1>;
+  return <Button>Test</Button>
 }
 
-const selector = document.querySelector("#app");
+const selector = document.querySelector('#app')
 
 ReactDOM.render(<App />, selector);
