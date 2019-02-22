@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/bsf-articlez/ReactBootCamp/precache-manifest.969545bdbc86741079699636d359f0e5.js"
+  "/week3/precache-manifest.5f6b552e056ecc2c44f0ebd4a201dd50.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/bsf-articlez/ReactBootCamp/index.html", {
+workbox.routing.registerNavigationRoute("/week3/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

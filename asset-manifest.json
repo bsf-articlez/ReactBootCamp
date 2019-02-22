@@ -1,11 +1,11 @@
 {
-  "main.js": "/bsf-articlez/ReactBootCamp/static/js/main.d15b884a.chunk.js",
-  "main.js.map": "/bsf-articlez/ReactBootCamp/static/js/main.d15b884a.chunk.js.map",
-  "static/js/1.4334b508.chunk.js": "/bsf-articlez/ReactBootCamp/static/js/1.4334b508.chunk.js",
-  "static/js/1.4334b508.chunk.js.map": "/bsf-articlez/ReactBootCamp/static/js/1.4334b508.chunk.js.map",
-  "runtime~main.js": "/bsf-articlez/ReactBootCamp/static/js/runtime~main.fa479256.js",
-  "runtime~main.js.map": "/bsf-articlez/ReactBootCamp/static/js/runtime~main.fa479256.js.map",
-  "index.html": "/bsf-articlez/ReactBootCamp/index.html",
-  "precache-manifest.969545bdbc86741079699636d359f0e5.js": "/bsf-articlez/ReactBootCamp/precache-manifest.969545bdbc86741079699636d359f0e5.js",
-  "service-worker.js": "/bsf-articlez/ReactBootCamp/service-worker.js"
+  "main.js": "/week3/static/js/main.d15b884a.chunk.js",
+  "main.js.map": "/week3/static/js/main.d15b884a.chunk.js.map",
+  "static/js/1.6961be55.chunk.js": "/week3/static/js/1.6961be55.chunk.js",
+  "static/js/1.6961be55.chunk.js.map": "/week3/static/js/1.6961be55.chunk.js.map",
+  "runtime~main.js": "/week3/static/js/runtime~main.6b9ae406.js",
+  "runtime~main.js.map": "/week3/static/js/runtime~main.6b9ae406.js.map",
+  "index.html": "/week3/index.html",
+  "precache-manifest.5f6b552e056ecc2c44f0ebd4a201dd50.js": "/week3/precache-manifest.5f6b552e056ecc2c44f0ebd4a201dd50.js",
+  "service-worker.js": "/week3/service-worker.js"
 }
