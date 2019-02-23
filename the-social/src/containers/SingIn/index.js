@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { API } from "../../configs";
 import { Row, Col } from "antd";
-import "./styled.scss";
+import "./styles.scss";
 
 function onSigin(username, password) {
   return async function(e) {
@@ -34,7 +34,7 @@ function SignIn() {
     <div className="signInContainer">
       <form onSubmit={onSigin(username, password)}>
         <Row>
-          <Col>
+          <Col className="col">
             <Input
               value={username}
               placeholder="Username"
@@ -44,7 +44,7 @@ function SignIn() {
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col className="col">
             <Input
               type="password"
               value={password}
@@ -55,12 +55,12 @@ function SignIn() {
           </Col>
         </Row>
         <Row>
-          <Col span={12}>
+          <Col span={12} className="col">
             <Button block type="submit" type="primary">
               SignIn
             </Button>
           </Col>
-          <Col span={12}>
+          <Col span={12} className="col">
             <Button block type="button" type="primary">
               SignUp
             </Button>
