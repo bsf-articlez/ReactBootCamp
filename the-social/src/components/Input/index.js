@@ -1,5 +1,5 @@
 import React from "react";
-//import "./styles.css";
+//import "./styles.sass";
 import { Input as AntInput } from "antd";
 
 // function selectMode(success, error) {
@@ -11,9 +11,18 @@ import { Input as AntInput } from "antd";
 //   return "input";
 // }
 
-function Input({ success, error, value, onChange, label, inline, ...rest }) {
+function Input({
+  success,
+  error,
+  value,
+  onChange,
+  label,
+  inline,
+  size = "large",
+  ...rest
+}) {
   return (
-    <AntInput value={value} onChange={onchange} size="large" />
+    <AntInput value={value} onChange={onchange} size={size} />
     // <div style={{ display: inline ? "inline-block" : "block" }}>
     //   {label && <label className="label">{label}</label>}
     //   <input
