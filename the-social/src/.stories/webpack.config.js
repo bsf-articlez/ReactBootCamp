@@ -1,22 +1,27 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
 module.exports = (storybookBaseConfig, configType) => {
-  // Make whatever fine-grained changes you need
-  storybookBaseConfig.module.rules.push({
-    test: /\.scss$/,
-    loaders: ["style-loader", "css-loader", "sass-loader"]
-  });
-
+  storybookBaseConfig.module.rules.push(
+    {
+      test: /\.css$/,
+      use: [
+        "style-loader", // creates style nodes from JS strings
+        "css-loader" // translates CSS into CommonJS
+      ]
+    },
+    {
+      test: /\.scss$/,
+      use: [
+        "style-loader", // creates style nodes from JS strings
+        "css-loader", // translates CSS into CommonJS
+        "sass-loader" // compiles Sass to CSS, using Node Sass by default
+      ]
+    }
+  );
   if (typeof storybookBaseConfig.resolve.modules !== "object") {
     storybookBaseConfig.resolve.modules = [];
   }
-
-  storybookBaseConfig.resolve.modules.push(
-    "node_modules",
-    path.resolve(__dirname, "../src")
-  );
-  // Return the altered config
+  storybookBaseConfig.resolve.modules.push(path.resolve(__dirname, "../src"));
   return storybookBaseConfig;
 };
