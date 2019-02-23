@@ -1,23 +1,18 @@
 .segment {
   min-width: 100px;
-  padding: 10px;
   .title {
     padding: 14px;
-    margin: -10px;
-    background-color: red;
+    background-color: rgb(255, 125, 125);
     .titleText {
       font-weight: bolder;
     }
   }
   .content {
-    background-color: green;
-    margin: -10px;
+    background-color: rgb(88, 233, 88);
   }
   .actionsWrapper {
-    background-color: blue;
-    margin: -10px;
+    background-color: rgb(252, 255, 85);
     .actionItem {
-    
     }
   }
   .container {
