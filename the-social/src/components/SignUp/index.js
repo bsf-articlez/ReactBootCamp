@@ -48,7 +48,7 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
 
-  const inputField = [
+  const inputFields = [
     {
       value: email,
       placeholder: "E-mail",
@@ -88,7 +88,7 @@ function SignUp() {
       <h2>SignUp</h2>
       <hr />
       <form onSubmit={onSigup(email, password)}>
-        {renderForm(inputField)}
+        {renderForm(inputFields)}
         <Row>
           <Col span={12} className="col">
             <Button block type="button" type="primary">

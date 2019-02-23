@@ -26,38 +26,47 @@ function onSigin(username, password) {
   };
 }
 
+const onChange = setter => e => {
+  const { value } = e.target;
+  setter(value);
+};
+
+const renderForm = inputField => {
+  return inputField.map((props, i) => (
+    <Row key={btoa(i)}>
+      <Col className="col">
+        <Input {...props} />
+      </Col>
+    </Row>
+  ));
+};
+
 function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const inputFields = [
+    {
+      value: username,
+      placeholder: "Username",
+      prefix: <Icon type="user" />,
+      onChange: onChange(setUsername)
+    },
+    {
+      value: password,
+      type: "password",
+      placeholder: "Password",
+      prefix: <Icon type="lock" />,
+      onChange: onChange(setPassword)
+    }
+  ];
 
   return (
     <div className="signInContainer">
       <h2>Login</h2>
       <hr />
       <form onSubmit={onSigin(username, password)}>
-        <Row>
-          <Col className="col">
-            <Input
-              value={username}
-              placeholder="Username"
-              label="Username"
-              prefix={<Icon type="user" />}
-              onChange={e => setUsername(e.target.value)}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col className="col">
-            <Input
-              type="password"
-              value={password}
-              placeholder="Password"
-              label="Password"
-              prefix={<Icon type="lock" />}
-              onChange={e => setPassword(e.target.value)}
-            />
-          </Col>
-        </Row>
+        {renderForm(inputFields)}
         <Row>
           <Col span={12} className="col">
             <Button block type="submit" type="primary">
