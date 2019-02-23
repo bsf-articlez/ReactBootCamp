@@ -77,7 +77,7 @@ function SignUp() {
     {
       value: confirmPassword,
       type: "password",
-      placeholder: "ConfirmPassword",
+      placeholder: "Confirm Password",
       prefix: <Icon type="lock" />,
       onChange: onChange(setconfirmPassword)
     }
@@ -90,7 +90,7 @@ function SignUp() {
       <form onSubmit={onSigup(email, password)}>
         {renderForm(inputFields)}
         <Row>
-          <Col span={12} className="col">
+          <Col span={24} className="col">
             <Button block type="button" type="primary">
               SignUp
             </Button>
