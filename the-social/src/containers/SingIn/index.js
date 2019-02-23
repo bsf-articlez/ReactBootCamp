@@ -3,6 +3,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { API } from "../../configs";
 import { Row, Col } from "antd";
+import "./styled.scss";
 
 function onSigin(username, password) {
   return async function(e) {
@@ -30,7 +31,7 @@ function SignIn() {
   const [password, setPassword] = useState("");
 
   return (
-    <div>
+    <div className="signInContainer">
       <form onSubmit={onSigin(username, password)}>
         <Row>
           <Col>
