@@ -2,16 +2,19 @@
   min-width: 100px;
   .title {
     padding: 14px;
-    background-color: rgb(255, 125, 125);
+    background-color: rgb(247, 247, 247);
+    border-bottom: 2px solid #f0f0f0;
     .titleText {
+      font-size: 1.6em;
       font-weight: bolder;
     }
   }
   .content {
-    background-color: rgb(88, 233, 88);
+    background-color: #fdfdfd;
+    border-bottom: 2px solid #f0f0f0;
   }
   .actionsWrapper {
-    background-color: rgb(252, 255, 85);
+    background-color: rgb(247, 247, 247);
     .actionItem {
     }
   }
