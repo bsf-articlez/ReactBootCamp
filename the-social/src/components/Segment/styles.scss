@@ -4,6 +4,8 @@
     padding: 14px;
     background-color: rgb(247, 247, 247);
     border-bottom: 2px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
     .titleText {
       font-size: 1.6em;
       font-weight: bolder;
@@ -24,5 +26,14 @@
     justify-content: stretch;
     flex: 1;
     padding: 13px;
+  }
+
+  .closeButton {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    .icon {
+      font-size: 1.6em;
+    }
   }
 }
