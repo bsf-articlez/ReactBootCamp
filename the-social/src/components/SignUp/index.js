@@ -32,8 +32,8 @@ const onChange = setter => e => {
 };
 
 const renderForm = inputField => {
-  return inputField.map(props => (
-    <Row>
+  return inputField.map((props, i) => (
+    <Row key={btoa(i)}>
       <Col className="col">
         <Input {...props} />
       </Col>
