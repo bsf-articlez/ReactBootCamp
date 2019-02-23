@@ -4,5 +4,6 @@ import Button from "../../components/Button";
 
 storiesOf("Button", module)
   .add("default", () => <Button>Default</Button>)
-  .add("primary", () => <Button color="primary">Primary</Button>)
-  .add("danger", () => <Button color="danger">Danger</Button>);
+  .add("dashed", () => <Button type="dashed">Dashed</Button>)
+  .add("primary", () => <Button type="primary">Primary</Button>)
+  .add("danger", () => <Button type="danger">Danger</Button>);
