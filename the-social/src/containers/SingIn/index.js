@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { API } from "../../configs";
+import { Row, Col } from "antd";
 
 function onSigin(username, password) {
   return async function(e) {
@@ -31,25 +32,39 @@ function SignIn() {
   return (
     <div>
       <form onSubmit={onSigin(username, password)}>
-        <Input
-          value={username}
-          placeholder="Username"
-          label="Username"
-          onChange={e => setUsername(e.target.value)}
-        />
-        <Input
-          type="password"
-          value={password}
-          placeholder="Password"
-          label="Password"
-          onChange={e => setPassword(e.target.value)}
-        />
-        <Button type="submit" color="primary">
-          SignIn
-        </Button>
-        <Button type="button" color="primary">
-          SignUp
-        </Button>
+        <Row>
+          <Col>
+            <Input
+              value={username}
+              placeholder="Username"
+              label="Username"
+              onChange={e => setUsername(e.target.value)}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Input
+              type="password"
+              value={password}
+              placeholder="Password"
+              label="Password"
+              onChange={e => setPassword(e.target.value)}
+            />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={12}>
+            <Button type="submit" color="primary">
+              SignIn
+            </Button>
+          </Col>
+          <Col span={12}>
+            <Button type="button" color="primary">
+              SignUp
+            </Button>
+          </Col>
+        </Row>
       </form>
     </div>
   );

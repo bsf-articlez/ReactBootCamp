@@ -1,7 +1,7 @@
 import { configure } from "@storybook/react";
 
 function loader() {
-  require('../storybook');
+  require("../storybook");
 }
 
 configure(loader, module);
