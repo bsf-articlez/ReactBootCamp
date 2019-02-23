@@ -19,10 +19,14 @@ function Segment({ children, content, title = "", actions = [], onClose }) {
     <div className="segment">
       <SegmentTitle onClose={onClose}>{title}</SegmentTitle>
       <SegmentContent>{children || content}</SegmentContent>
-      {actions.length > -1 && renderActions(actions)}
+      {actions.length > 0 && renderActions(actions)}
     </div>
   );
 }
+
+Segment.defaultProps = {
+  onClose: () => {}
+};
 
 function SegmentTitle({ children, title = "", onClose, ...rest }) {
   return (
@@ -34,6 +38,10 @@ function SegmentTitle({ children, title = "", onClose, ...rest }) {
     </div>
   );
 }
+
+SegmentTitle.defaultProps = {
+  onClose: () => {}
+};
 
 function SegmentContent({ children, content = "" }) {
   return (
