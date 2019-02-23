@@ -4,7 +4,11 @@
   .ant-row {
     margin-bottom: 20px;
     .col {
-      margin-right: 5px;
+      padding-right: 5px;
+    }
+
+    .col:last-child {
+      padding-right: 0;
     }
   }
 }
