@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (env, args) => {
   return {
-    mode: "development",
+    mode: "development", // build mode development,
     entry: "./index.js",
     output: {
       filename: "app.js",
@@ -34,7 +34,7 @@ module.exports = (env, args) => {
         },
         {
           test: /\.(css)$/,
-          exclude: /node_modules/,
+          //exclude: /node_modules/,
           use: ["style-loader", "css-loader"]
         }
       ]
@@ -51,7 +51,7 @@ module.exports = (env, args) => {
       port: 3000
     },
     resolve: {
-      modules: ["node_modules", path.resolve(__dirname, '../src')]
+      modules: ["node_modules", path.resolve(__dirname, "../src")]
     }
   };
 };
