@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Row, Col, Icon } from "antd";
 import Button from "components/Button";
 import Input from "components/Input";
 import { API } from "configs";
-import { Row, Col, Icon } from "antd";
 import "./styles.scss";
 
-function onSigup(username, password) {
+function onSigin(username, password) {
   return async function(e) {
     e.preventDefault();
     try {
@@ -31,8 +31,8 @@ const onChange = setter => e => {
   setter(value);
 };
 
-const renderForm = inputField => {
-  return inputField.map((props, i) => (
+function renderForm(inputFields) {
+  return inputFields.map((props, i) => (
     <Row key={btoa(i)}>
       <Col className="col">
         <Input {...props} />
@@ -46,7 +46,7 @@ function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setconfirmPassword] = useState("");
+  const [confirmPassowrd, setConfirmPassword] = useState("");
 
   const inputFields = [
     {
@@ -57,13 +57,13 @@ function SignUp() {
     },
     {
       value: firstName,
-      placeholder: "First Name",
+      placeholder: "First name",
       prefix: <Icon type="user" />,
       onChange: onChange(setFirstName)
     },
     {
       value: lastName,
-      placeholder: "Last Name",
+      placeholder: "Last name",
       prefix: <Icon type="user" />,
       onChange: onChange(setLastName)
     },
@@ -75,24 +75,24 @@ function SignUp() {
       onChange: onChange(setPassword)
     },
     {
-      value: confirmPassword,
+      value: confirmPassowrd,
       type: "password",
-      placeholder: "Confirm Password",
+      placeholder: "Confirm password",
       prefix: <Icon type="lock" />,
-      onChange: onChange(setconfirmPassword)
+      onChange: onChange(setConfirmPassword)
     }
   ];
 
   return (
     <div className="signInContainer">
-      <h2>SignUp</h2>
+      <h2>Sign up</h2>
       <hr />
-      <form onSubmit={onSigup(email, password)}>
+      <form onSubmit={onSigin(email, password)}>
         {renderForm(inputFields)}
         <Row>
-          <Col span={24} className="col">
-            <Button block type="button" type="primary">
-              SignUp
+          <Col className="col">
+            <Button block type="primary">
+              Sign up
             </Button>
           </Col>
         </Row>

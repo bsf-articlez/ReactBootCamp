@@ -1,22 +1,37 @@
 import React, { useEffect, useState } from "react";
-import Button from "../../components/Button";
-import Input from "../../components/Input";
-import { API } from "../../configs";
 import { Row, Col, Icon } from "antd";
+import Button from "components/Button";
+import Input from "components/Input";
+import { API } from "configs";
 import "./styles.scss";
 
-function onSigin(username, password) {
+const onChange = setter => e => {
+  const { value } = e.target;
+  setter(value);
+};
+
+function renderForm(inputFields) {
+  return inputFields.map((props, i) => (
+    <Row key={btoa(i)}>
+      <Col className="col">
+        <Input {...props} />
+      </Col>
+    </Row>
+  ));
+}
+
+function onSigin(email, password) {
   return async function(e) {
     e.preventDefault();
     try {
       const result = await API.fetchAPI(
-        `/users?username=${username}&password=${password}`
+        `/users?email=${email}&password=${password}`
       );
       console.log(result);
       if (result.length > 0) {
         alert("LogedIn :)");
       } else {
-        alert("Username or password incorrect!!!");
+        alert("Email or password incorrect!!!");
       }
     } catch (err) {
       if (err.hasOwnProperty("response")) {
@@ -26,31 +41,15 @@ function onSigin(username, password) {
   };
 }
 
-const onChange = setter => e => {
-  const { value } = e.target;
-  setter(value);
-};
-
-const renderForm = inputField => {
-  return inputField.map((props, i) => (
-    <Row key={btoa(i)}>
-      <Col className="col">
-        <Input {...props} />
-      </Col>
-    </Row>
-  ));
-};
-
 function SignIn() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const inputFields = [
     {
-      value: username,
-      placeholder: "Username",
-      prefix: <Icon type="user" />,
-      onChange: onChange(setUsername)
+      value: email,
+      placeholder: "E-mail",
+      prefix: <Icon type="mail" />,
+      onChange: onChange(setEmail)
     },
     {
       value: password,
@@ -60,22 +59,21 @@ function SignIn() {
       onChange: onChange(setPassword)
     }
   ];
-
   return (
     <div className="signInContainer">
-      <h2>Login</h2>
+      <h2>Sign in</h2>
       <hr />
-      <form onSubmit={onSigin(username, password)}>
+      <form onSubmit={onSigin(email, password)}>
         {renderForm(inputFields)}
         <Row>
           <Col span={12} className="col">
-            <Button block type="submit" type="primary">
-              SignIn
+            <Button block type="primary">
+              Sign in
             </Button>
           </Col>
           <Col span={12} className="col">
-            <Button block type="button" type="primary">
-              SignUp
+            <Button block type="primary">
+              Sign up
             </Button>
           </Col>
         </Row>
