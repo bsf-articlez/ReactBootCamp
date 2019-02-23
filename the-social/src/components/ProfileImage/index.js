@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
 function ProfileImage({ src, icon, size = "medium", ...rest }) {
-  if (!/^(tiny|small|medium|large)$/.test(size)) {
-    size = "medium";
+  if (!/^x[1-10]/.test(size)) {
+    size = "x3";
   }
   const [imageLoaded, setImageLoaded] = useState(null);
   useEffect(() => {

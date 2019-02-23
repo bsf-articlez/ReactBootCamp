@@ -19,22 +19,9 @@
   }
 }
 
-.imageWrapper.tiny {
-  width: 20px;
-  height: 20px;
-}
-
-.imageWrapper.small {
-  width: 40px;
-  height: 40px;
-}
-
-.imageWrapper.medium {
-  width: 80px;
-  height: 80px;
-}
-
-.imageWrapper.large {
-  width: 160px;
-  height: 160px;
+@for $i from 1 through 10 {
+  .imageWrapper.x#{$i} {
+    width: 20px * $i;
+    height: 20px * $i;
+  }
 }

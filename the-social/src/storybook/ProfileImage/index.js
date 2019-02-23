@@ -2,7 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import ProfileImage from "components/ProfileImage";
 const src =
-  "https://specials-images.forbesimg.com/imageserve/5ba415b6a7ea434e4c694719/416x416.jpg?background=000000&cropX1=1503&cropX2=4716&cropY1=21&cropY2=3236";
+  "https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1";
 storiesOf("Profile Image", module)
   .add("with no image", () => <ProfileImage />)
   .add("with image", () => <ProfileImage src={src} />);
