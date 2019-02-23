@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import { API } from "../../configs";
-import { Row, Col } from "antd";
+import { Row, Col, Icon } from "antd";
 import "./styles.scss";
 
 function onSigin(username, password) {
@@ -32,6 +32,8 @@ function SignIn() {
 
   return (
     <div className="signInContainer">
+      <h2>Login</h2>
+      <hr />
       <form onSubmit={onSigin(username, password)}>
         <Row>
           <Col className="col">
@@ -39,6 +41,7 @@ function SignIn() {
               value={username}
               placeholder="Username"
               label="Username"
+              prefix={<Icon type="user" />}
               onChange={e => setUsername(e.target.value)}
             />
           </Col>
@@ -50,6 +53,7 @@ function SignIn() {
               value={password}
               placeholder="Password"
               label="Password"
+              prefix={<Icon type="lock" />}
               onChange={e => setPassword(e.target.value)}
             />
           </Col>
