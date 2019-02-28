@@ -1,0 +1,10 @@
+.postMessage {
+  max-width: 400px;
+  min-width: 400px;
+  height: 100%;
+  .ant-row {
+    .col {
+      padding-left: 40px;
+    }
+  }
+}
