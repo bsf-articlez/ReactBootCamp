@@ -4,5 +4,5 @@ import PostMessage from "components/PostMessage";
 
 storiesOf("Post Message", module).add(
   "with profile-image and input-multiline",
-  () => <PostMessage />
+  () => <PostMessage icon={false} size="3" />
 );

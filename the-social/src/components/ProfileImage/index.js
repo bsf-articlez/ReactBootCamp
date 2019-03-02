@@ -3,9 +3,11 @@ import classnames from "classnames";
 import { Icon } from "antd";
 import "./styles.scss";
 
-function ProfileImage({ src, icon, size = "x3", ...rest }) {
-  if (!/^x([1-9]|10)$/.test(size)) {
+function ProfileImage({ src, icon, size = "3", ...rest }) {
+  if (!/^([1-9]|10)$/.test(size)) {
     size = "x3";
+  } else {
+    size = "x" + size;
   }
   const [imageLoaded, setImageLoaded] = useState(null);
   useEffect(() => {
@@ -25,7 +27,11 @@ function ProfileImage({ src, icon, size = "x3", ...rest }) {
           <span>Loading...</span>
         </div>
       )}
-      {!icon && <div className="icon">{icon || <Icon type="plus" />}</div>}
+      {icon && (
+        <div className="icon">
+          <Icon type="plus" />
+        </div>
+      )}
     </div>
   );
 }

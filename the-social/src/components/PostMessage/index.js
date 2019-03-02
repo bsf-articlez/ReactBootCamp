@@ -4,14 +4,21 @@ import InputMutiLine from "../InputMultiLine";
 import { Row, Col } from "antd";
 import "./styles.scss";
 
-function PostMessage({ src }) {
+function PostMessage({ src, icon, size }) {
+  const maxColSpan = 24;
+  var sizeCol;
+  if (size % 2 != 0) {
+    sizeCol = size + 1;
+  }
+  const secondColSpan = maxColSpan - sizeCol;
+
   return (
     <div className="postMessage">
       <Row>
-        <Col span={2}>
-          <ProfileImage src={src} icon="true" />
+        <Col span={sizeCol}>
+          <ProfileImage src={src} icon={icon} size={size} />
         </Col>
-        <Col span={22} className="col">
+        <Col span={secondColSpan} className="col">
           <InputMutiLine />
         </Col>
       </Row>

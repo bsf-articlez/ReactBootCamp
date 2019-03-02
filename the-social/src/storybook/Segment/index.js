@@ -9,5 +9,5 @@ const src =
 storiesOf("Segment", module)
   .add("with title", () => <Segment title="My Segment" />)
   .add("with content", () => (
-    <Segment title="สร้างโพสต์" content={<PostMessage src={src} />} />
+    <Segment title="สร้างโพสต์" content={<PostMessage src={src} size={3} />} />
   ));
