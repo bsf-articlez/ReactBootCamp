@@ -6,9 +6,10 @@ import "./styles.scss";
 
 function PostMessage({ src, icon, size }) {
   const maxColSpan = 24;
-  var sizeCol;
+  if (size > 9) size = 3;
+  var sizeCol = size + 2;
   if (size % 2 != 0) {
-    sizeCol = size + 1;
+    sizeCol = size + 3;
   }
   const secondColSpan = maxColSpan - sizeCol;
 
