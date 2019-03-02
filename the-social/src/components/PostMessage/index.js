@@ -9,7 +9,7 @@ function PostMessage({ src }) {
     <div className="postMessage">
       <Row>
         <Col span={2}>
-          <ProfileImage src={src} />
+          <ProfileImage src={src} icon="true" />
         </Col>
         <Col span={22} className="col">
           <InputMutiLine />
