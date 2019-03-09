@@ -9,7 +9,7 @@ function Root() {
     <React.Fragment>
       <Router history={history}>
         <Switch>
-          <NonAuthRoute />
+          {/* <NonAuthRoute /> */}
           <AuthRoute />
         </Switch>
       </Router>

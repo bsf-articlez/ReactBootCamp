@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./styles.scss";
 import { Icon } from "antd";
+import { usePreload } from "helpers/util";
+
 function ProfileImage({ src, icon, size = "x4", ...rest }) {
   if (!/^x([1-9]|10)/.test(size)) {
     size = "x4";
   }
   const [imageLoaded, setImageLoaded] = useState(null);
   useEffect(() => {
-    const image = new Image();
-    image.src = src;
-    image.onload = () => {
-      setImageLoaded(src);
-    };
-    image.onerror = () => {};
+    usePreload(src)
+      .then(result => {
+        setImageLoaded(result);
+      })
+      .catch(() => {
+        console.log("Cover image can't loaded");
+      });
   }, []);
   return (
     <div className={`imageWrapper ${size}`}>
