@@ -1,17 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-//import Button from "components/Button";
-import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
-import { Button } from "antd";
-
+import Root from "components/Root";
+// import Button from "./src/components/Button";
+// import { Button as AntButton } from "antd";
+import "antd/dist/antd.css";
 function App() {
-  return (
-    <div>
-      <Button>Test</Button>
-    </div>
-  );
+  return <Button children="Test" />;
 }
 
 const selector = document.querySelector("#app");
-
-ReactDOM.render(<App />, selector);
+ReactDOM.render(<Root />, selector);
