@@ -1,6 +1,7 @@
 import React from "react";
-import "./styles.scss";
 import { Input as AntInput } from "antd";
+
+import "./styles.scss";
 
 // function selectMode(success, error) {
 //   if (success) {
@@ -11,16 +12,7 @@ import { Input as AntInput } from "antd";
 //   return "input";
 // }
 
-function Input({
-  success,
-  error,
-  value,
-  onChange,
-  label,
-  inline,
-  size = "large",
-  ...rest
-}) {
+function Input({ success, error, value, onChange, label, inline, size='large', ...rest }) {
   return (
     <AntInput value={value} onChange={onChange} size={size} {...rest} />
     // <div style={{ display: inline ? "inline-block" : "block" }}>

@@ -26,14 +26,14 @@ function Segment({ children, content, title = "", actions = [], onClose }) {
 
 Segment.defaultProps = {
   onClose: () => {}
-};
+}
 
 function SegmentTitle({ children, title = "", onClose, ...rest }) {
   return (
     <div className="title" {...rest}>
       <span className="titleText">{children || title}</span>
       <div className="closeButton" onClick={onClose}>
-        <Icon type="close" />
+        <Icon type="close" className="icon" />
       </div>
     </div>
   );
@@ -41,7 +41,7 @@ function SegmentTitle({ children, title = "", onClose, ...rest }) {
 
 SegmentTitle.defaultProps = {
   onClose: () => {}
-};
+}
 
 function SegmentContent({ children, content = "" }) {
   return (
