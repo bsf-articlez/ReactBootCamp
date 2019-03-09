@@ -1,5 +1,6 @@
+const webpack = require("webpack");
 const path = require("path");
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = (storybookBaseConfig, configType) => {
   storybookBaseConfig.module.rules.push(
     {
@@ -18,11 +19,11 @@ module.exports = (storybookBaseConfig, configType) => {
       ]
     }
   );
-
-  // if(typeof storybookBaseConfig.resolve.modules !== 'object'){
-  //   storybookBaseConfig.resolve.modules = [];
-  // }
-  storybookBaseConfig.resolve.modules.push(path.resolve(__dirname, "../../src"));
-  // console.log(storybookBaseConfig.resolve.modules);
+  if (typeof storybookBaseConfig.resolve.modules !== "object") {
+    storybookBaseConfig.resolve.modules = [];
+  }
+  storybookBaseConfig.resolve.modules.push(
+    path.resolve(__dirname, "../../src")
+  );
   return storybookBaseConfig;
 };

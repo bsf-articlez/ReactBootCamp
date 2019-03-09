@@ -1,7 +1,6 @@
 import React from "react";
-import './styles.scss';
-
-function CapsuleButton({ icon, label = "", onClick = () => {}, ...rest }) {
+import "./styles.scss";
+function CapsuleButton({ icon, label, onClick, ...rest }) {
   return (
     <div className="capsuleWrapper" {...rest} onClick={onClick}>
       {icon && <div className="icon">{icon}</div>}
@@ -9,5 +8,4 @@ function CapsuleButton({ icon, label = "", onClick = () => {}, ...rest }) {
     </div>
   );
 }
-
 export default CapsuleButton;

@@ -1,10 +1,10 @@
 .segment {
   min-width: 100px;
   .title {
+    display: flex;
     padding: 14px;
     background-color: #f1f0f0;
     border-bottom: 2px solid #dcdcdc;
-    display: flex;
     justify-content: space-between;
     .titleText {
       font-size: 1.6em;
@@ -14,7 +14,7 @@
       display: flex;
       align-items: center;
       cursor: pointer;
-      .icon {
+      .Icon {
         font-size: 1.6em;
       }
     }
@@ -22,12 +22,21 @@
   .content {
     background-color: #fdfdfd;
     border-bottom: 2px solid #dcdcdc;
-  }
-  .actionsWrapper {
-    background-color: #ebebeb;
-    .actionItem {
+    .Post {
+      display: flex;
+      flex: 1;
     }
   }
+  .actionsWrapper {
+    background-color: #dcdcdc;
+    .container {
+      flex-direction: column;
+      .actionItem {
+        padding: 8px 0;
+      }
+    }
+  }
+
   .container {
     display: flex;
     align-items: stretch;

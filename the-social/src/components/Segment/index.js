@@ -1,7 +1,6 @@
 import React from "react";
-import { Icon } from "antd";
 import "./styles.scss";
-
+import { Icon } from "antd";
 function renderActions(actions) {
   return (
     <div className="actionsWrapper">
@@ -13,8 +12,7 @@ function renderActions(actions) {
     </div>
   );
 }
-
-function Segment({ children, content, title = "", actions = [], onClose }) {
+function Segment({ children, content, title, actions = [], onClose }) {
   return (
     <div className="segment">
       <SegmentTitle onClose={onClose}>{title}</SegmentTitle>
@@ -23,17 +21,15 @@ function Segment({ children, content, title = "", actions = [], onClose }) {
     </div>
   );
 }
-
 Segment.defaultProps = {
   onClose: () => {}
-}
-
+};
 function SegmentTitle({ children, title = "", onClose, ...rest }) {
   return (
     <div className="title" {...rest}>
       <span className="titleText">{children || title}</span>
       <div className="closeButton" onClick={onClose}>
-        <Icon type="close" className="icon" />
+        <Icon type="close" className="Icon" />
       </div>
     </div>
   );
@@ -41,8 +37,7 @@ function SegmentTitle({ children, title = "", onClose, ...rest }) {
 
 SegmentTitle.defaultProps = {
   onClose: () => {}
-}
-
+};
 function SegmentContent({ children, content = "" }) {
   return (
     <div className="content">
@@ -50,11 +45,9 @@ function SegmentContent({ children, content = "" }) {
     </div>
   );
 }
-
 function SegmentAction({ children, content = "" }) {
   return <div className="actionItem">{children || content}</div>;
 }
 
 export { SegmentTitle, SegmentContent, SegmentAction };
-
 export default Segment;

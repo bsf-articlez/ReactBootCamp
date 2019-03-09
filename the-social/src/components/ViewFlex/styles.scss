@@ -1,6 +1,9 @@
 .view {
   display: flex;
   flex: 1;
+  .margin {
+    margin-bottom: 13px;
+  }
   .view {
     display: flex;
     flex-shrink: 1;
@@ -13,5 +16,8 @@
   }
   &.column {
     flex-direction: column;
+  }
+  .gapRight {
+    margin-right: 10px;
   }
 }

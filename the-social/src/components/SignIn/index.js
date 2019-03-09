@@ -3,20 +3,22 @@ import { Row, Col, Icon } from "antd";
 import Button from "components/Button";
 import Input from "components/Input";
 import { API } from "configs";
+import { Link } from "react-router-dom";
+import history from "routes/history";
 import "./styles.scss";
 
-function onSigin(username, password) {
+function onSigin(Email, password) {
   return async function(e) {
     e.preventDefault();
     try {
       const result = await API.fetchAPI(
-        `/users?username=${username}&password=${password}`
+        `/users?Email=${Email}&password=${password}`
       );
       console.log(result);
       if (result.length > 0) {
         alert("LogedIn :)");
       } else {
-        alert("Username or password incorrect!!!");
+        alert("Email or password incorrect!!!");
       }
     } catch (err) {
       if (err.hasOwnProperty("response")) {
@@ -25,10 +27,6 @@ function onSigin(username, password) {
     }
   };
 }
-const onChange = setter => e => {
-  const { value } = e.target;
-  setter(value);
-};
 
 function renderForm(inputFields) {
   return inputFields.map((props, i) => (
@@ -39,26 +37,21 @@ function renderForm(inputFields) {
     </Row>
   ));
 }
+
+const onChange = setter => e => {
+  const { value } = e.target;
+  setter(value);
+};
+
+function gotoSignUp() {
+  history.push("/signup");
+}
+
 function SignIn() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const inputFields = [
-    {
-      value: firstName,
-      placeholder: "First Name",
-      prefix: <Icon type="user" />,
-      onChange: onChange(setFirstName)
-    },
-    {
-      value: lastName,
-      placeholder: "Last Name",
-      prefix: <Icon type="user" />,
-      onChange: onChange(setLastName)
-    },
     {
       value: Email,
       placeholder: "E-mail",
@@ -71,27 +64,27 @@ function SignIn() {
       placeholder: "Password",
       prefix: <Icon type="lock" />,
       onChange: onChange(setPassword)
-    },
-    {
-      value: confirmPassword,
-      type: "password",
-      placeholder: "Confirm Password",
-      prefix: <Icon type="lock" />,
-      onChange: onChange(setConfirmPassword)
     }
   ];
   return (
     <div className="signInContainer">
-      <h2>Sign Up</h2>
+      <h2>Sign in</h2>
       <hr />
       <form onSubmit={onSigin(Email, password)}>
         {renderForm(inputFields)}
 
         <Row>
-          <Col className="col">
+          <Col span={12} className="col">
             <Button block type="primary" type="submit">
-              Sign Up
+              SignIn
             </Button>
+          </Col>
+          <Col span={12} className="col">
+            {/* <Link to="/signup"> */}
+            <Button block type="primary" onClick={gotoSignUp} type="button">
+              SignUp
+            </Button>
+            {/* </Link> */}
           </Col>
         </Row>
       </form>

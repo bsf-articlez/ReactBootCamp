@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { storiesOf } from "@storybook/react";
-import CheckBox from "../../components/CheckBox";
+import CheckBox from "components/CheckBox";
 import { Icon } from "antd";
-import ProfileImage from "../../components/ProfileImage";
+import ProfileImage from "components/ProfileImage";
 
 function CheckBoxPlayGround() {
   const [checked, setCheck] = useState(false);
@@ -11,7 +11,6 @@ function CheckBoxPlayGround() {
   };
   return (
     <CheckBox
-      name="something"
       checked={checked}
       onChange={onChange}
       icon={<Icon type="user" />}
@@ -19,16 +18,15 @@ function CheckBoxPlayGround() {
     />
   );
 }
-
-storiesOf("CheckBox", module)
-  .add("with label", () => <CheckBox label="hello" />)
-  .add("with prefix label", () => (
+storiesOf("Checkbox", module)
+  .add("with label", () => <CheckBox label="Hello " />)
+  .add("with Prefix icon", () => (
     <CheckBox icon={<Icon type="user" />} label="Hello Icon" />
   ))
   .add("with prefix profile image", () => (
     <CheckBox
-      icon={<ProfileImage size="x2" icon={<icon type="plus" />} />}
-      label="Apisek"
+      icon={<ProfileImage size="x2" icon={<Icon type="plus" />} />}
+      label="Kittisak"
     />
   ))
   .add("play ground", () => <CheckBoxPlayGround />);

@@ -4,7 +4,7 @@ import Button from "../../components/Button";
 import { Button as AntButton } from "antd";
 
 storiesOf("Button", module)
-  .add("default", () => <Button>Default</Button>)
-  .add("dashed", () => <Button type="dashed">Dashed</Button>)
+  .add("default", () => <Button>Primary</Button>)
+  .add("dashed", () => <Button type="dashed">Default</Button>)
   .add("primary", () => <Button type="primary">Primary</Button>)
-  .add("danger", () => <Button type="danger">Danger</Button>)
+  .add("danger", () => <Button type="danger">Danger</Button>);

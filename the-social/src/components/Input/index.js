@@ -12,9 +12,18 @@ import "./styles.scss";
 //   return "input";
 // }
 
-function Input({ success, error, value, onChange, label, inline, size='large', ...rest }) {
+function Input({
+  success,
+  error,
+  value,
+  onChange,
+  label,
+  inline,
+  size = "large",
+  ...rest
+}) {
   return (
-    <AntInput value={value} onChange={onChange} size={size} {...rest} />
+    <AntInput value={value} onChange={onChange} size="large" {...rest} />
     // <div style={{ display: inline ? "inline-block" : "block" }}>
     //   {label && <label className="label">{label}</label>}
     //   <input

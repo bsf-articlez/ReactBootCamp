@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import classnames from 'classnames';
-import { Icon } from "antd";
 import "./styles.scss";
-
+import { Icon } from "antd";
 function ProfileImage({ src, icon, size = "x4", ...rest }) {
-  if (!/^x([1-9]|10)$/.test(size)) {
+  if (!/^x([1-9]|10)/.test(size)) {
     size = "x4";
   }
   const [imageLoaded, setImageLoaded] = useState(null);
@@ -17,13 +15,13 @@ function ProfileImage({ src, icon, size = "x4", ...rest }) {
     image.onerror = () => {};
   }, []);
   return (
-    <div className={classnames('imageWrapper', `${size}`)}>
+    <div className={`imageWrapper ${size}`}>
       {imageLoaded ? (
         <img className="image" src={imageLoaded} />
       ) : (
-        <div className="loading"><span><Icon type="minus-circle" /></span></div>
+        <div className="loading">Loading...</div>
       )}
-      {icon && <div className="icon">{icon || <Icon type="plus" />}</div>}
+      {icon ? <div className="icon">{<Icon type="plus" />}</div> : <div />}
     </div>
   );
 }
