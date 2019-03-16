@@ -25,6 +25,7 @@ function onSigin(username, password) {
     }
   };
 }
+
 const onChange = setter => e => {
   const { value } = e.target;
   setter(value);
@@ -38,32 +39,33 @@ function renderForm(inputFields) {
       </Col>
     </Row>
   ));
-}
-function SignIn() {
+};
+
+function SignUp() {
+  const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [Email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPassowrd, setConfirmPassword] = useState("");
 
   const inputFields = [
     {
+      value: email,
+      placeholder: "E-mail",
+      prefix: <Icon type="mail" />,
+      onChange: onChange(setEmail)
+    },
+    {
       value: firstName,
-      placeholder: "First Name",
+      placeholder: "First name",
       prefix: <Icon type="user" />,
       onChange: onChange(setFirstName)
     },
     {
       value: lastName,
-      placeholder: "Last Name",
+      placeholder: "Last name",
       prefix: <Icon type="user" />,
       onChange: onChange(setLastName)
-    },
-    {
-      value: Email,
-      placeholder: "E-mail",
-      prefix: <Icon type="mail" />,
-      onChange: onChange(setEmail)
     },
     {
       value: password,
@@ -73,24 +75,24 @@ function SignIn() {
       onChange: onChange(setPassword)
     },
     {
-      value: confirmPassword,
+      value: confirmPassowrd,
       type: "password",
-      placeholder: "Confirm Password",
+      placeholder: "Confirm password",
       prefix: <Icon type="lock" />,
       onChange: onChange(setConfirmPassword)
     }
   ];
+
   return (
     <div className="signInContainer">
-      <h2>Sign Up</h2>
+      <h2>Sign up</h2>
       <hr />
-      <form onSubmit={onSigin(Email, password)}>
+      <form onSubmit={onSigin(email, password)}>
         {renderForm(inputFields)}
-
         <Row>
           <Col className="col">
-            <Button block type="primary" type="submit">
-              Sign Up
+            <Button block type="primary">
+              Sign up
             </Button>
           </Col>
         </Row>
@@ -99,4 +101,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignUp;

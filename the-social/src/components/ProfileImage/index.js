@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./styles.scss";
+import classnames from 'classnames';
 import { Icon } from "antd";
 import { usePreload } from "helpers/util";
+import "./styles.scss";
 
 function ProfileImage({ src, icon, size = "x4", ...rest }) {
-  if (!/^x([1-9]|10)/.test(size)) {
+  if (!/^x([1-9]|10)$/.test(size)) {
     size = "x4";
   }
   const [imageLoaded, setImageLoaded] = useState(null);
@@ -13,18 +14,16 @@ function ProfileImage({ src, icon, size = "x4", ...rest }) {
       .then(result => {
         setImageLoaded(result);
       })
-      .catch(() => {
-        console.log("Cover image can't loaded");
-      });
+      .catch(error => console.log(error, "Cover image can't loaded"));
   }, []);
   return (
-    <div className={`imageWrapper ${size}`}>
+    <div className={classnames('imageWrapper', `${size}`)}>
       {imageLoaded ? (
         <img className="image" src={imageLoaded} />
       ) : (
-        <div className="loading">Loading...</div>
+        <div className="loading"><span><Icon type="minus-circle" /></span></div>
       )}
-      {icon ? <div className="icon">{<Icon type="plus" />}</div> : <div />}
+      {icon && <div className="icon">{icon || <Icon type="plus" />}</div>}
     </div>
   );
 }

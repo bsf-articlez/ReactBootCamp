@@ -4,15 +4,30 @@ import Button from "components/Button";
 import Input from "components/Input";
 import { API } from "configs";
 import { Link } from "react-router-dom";
-import history from "routes/history";
+import history from 'routes/history';
 import "./styles.scss";
 
-function onSigin(Email, password) {
+const onChange = setter => e => {
+  const { value } = e.target;
+  setter(value);
+};
+
+function renderForm(inputFields) {
+  return inputFields.map((props, i) => (
+    <Row key={btoa(i)}>
+      <Col className="col">
+        <Input {...props} />
+      </Col>
+    </Row>
+  ));
+}
+
+function onSigin(email, password) {
   return async function(e) {
     e.preventDefault();
     try {
       const result = await API.fetchAPI(
-        `/users?Email=${Email}&password=${password}`
+        `/users?email=${email}&password=${password}`
       );
       console.log(result);
       if (result.length > 0) {
@@ -28,32 +43,16 @@ function onSigin(Email, password) {
   };
 }
 
-function renderForm(inputFields) {
-  return inputFields.map((props, i) => (
-    <Row key={btoa(i)}>
-      <Col className="col">
-        <Input {...props} />
-      </Col>
-    </Row>
-  ));
-}
-
-const onChange = setter => e => {
-  const { value } = e.target;
-  setter(value);
-};
-
 function gotoSignUp() {
-  history.push("/signup");
+  history.push('/signup');
 }
 
 function SignIn() {
-  const [Email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const inputFields = [
     {
-      value: Email,
+      value: email,
       placeholder: "E-mail",
       prefix: <Icon type="mail" />,
       onChange: onChange(setEmail)
@@ -70,19 +69,18 @@ function SignIn() {
     <div className="signInContainer">
       <h2>Sign in</h2>
       <hr />
-      <form onSubmit={onSigin(Email, password)}>
+      <form onSubmit={onSigin(email, password)}>
         {renderForm(inputFields)}
-
         <Row>
           <Col span={12} className="col">
-            <Button block type="primary" type="submit">
-              SignIn
+            <Button block type="primary">
+              Sign in
             </Button>
           </Col>
           <Col span={12} className="col">
             {/* <Link to="/signup"> */}
-            <Button block type="primary" onClick={gotoSignUp} type="button">
-              SignUp
+            <Button block type="primary" onClick={gotoSignUp}>
+              Sign up
             </Button>
             {/* </Link> */}
           </Col>

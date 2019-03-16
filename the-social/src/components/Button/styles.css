@@ -5,7 +5,6 @@ button.btn {
   outline: none;
   border: 1px solid rgb(139, 139, 139);
   font-size: 0.95em;
-  margin: 10px 5px 10px;
 }
 
 button.btn:hover {
@@ -16,9 +15,7 @@ button.btn:active {
   filter: brightness(0.8);
 }
 
-button.btn.primary,
-button.btn.danger,
-button.btn.green {
+button.btn.primary, button.btn.danger {
   color: #fff;
 }
 
@@ -30,9 +27,4 @@ button.btn.primary {
 button.btn.danger {
   background-color: rgb(167, 60, 45);
   border: 1px solid rgb(119, 41, 30);
-}
-
-button.btn.green {
-  background-color: #5cb85c;
-  border: 1px solid rgb(48, 114, 4);
 }

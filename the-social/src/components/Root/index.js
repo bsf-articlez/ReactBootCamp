@@ -1,19 +1,20 @@
 import React from "react";
 import AuthRoute from "routes/AuthRoute";
 import NonAuthRoute from "routes";
-import { Router, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import history from "routes/history";
 
 function Root() {
   return (
-    <React.Fragment>
+    <div>
       <Router history={history}>
         <Switch>
-          {/* <NonAuthRoute /> */}
           <AuthRoute />
+          {/* <NonAukthRoute /> */}
+          {/* <Route component={() => <h1>paragraph</h1>} /> */}
         </Switch>
       </Router>
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -1,2 +1,5 @@
-import usePreload from "./preloadImage";
-export { usePreload };
+import usePreload from './preloadImage';
+
+export {
+  usePreload
+}

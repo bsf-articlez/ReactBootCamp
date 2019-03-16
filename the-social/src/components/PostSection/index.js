@@ -3,9 +3,9 @@ import Segment from "components/Segment";
 import ViewFlex from "components/ViewFlex";
 import ProfileImage from "components/ProfileImage";
 import { Icon, Row, Col, Dropdown, Menu } from "antd";
-import Button from "components/Button";
 import CapsuleButton from "components/CapsuleButton";
 import CheckBox from "components/CheckBox";
+import Button from "components/Button";
 import "./styles.scss";
 
 const privacyMenu = (
@@ -14,7 +14,7 @@ const privacyMenu = (
       <Icon type="global" />
       สาธารณะ
     </Menu.Item>
-    <Menu.Item key="private">
+    <Menu.Item key="onlyMe">
       <Icon type="lock" />
       เฉพาะฉัน
     </Menu.Item>
@@ -25,7 +25,7 @@ const privacyMenu = (
   </Menu>
 );
 
-const postOption = [
+const postOptions = [
   {
     icon: <Icon type="user" />,
     label: "first user"
@@ -39,17 +39,8 @@ const postOption = [
     label: "Delete Tag friends"
   }
 ];
-function PrivacySelector() {
-  return (
-    <Dropdown overlay={privacyMenu} trigger={["click"]}>
-      <Button style={{ float: "right" }}>
-        <Icon type="global" />
-        Privacy <Icon type="down" />
-      </Button>
-    </Dropdown>
-  );
-}
-function renderPostOption(options) {
+
+function renderPostOptions(options) {
   return options.map(option => (
     <ViewFlex margin={false}>
       <CapsuleButton {...option} />
@@ -57,12 +48,22 @@ function renderPostOption(options) {
   ));
 }
 
+function PrivacySelector() {
+  return (
+    <Dropdown overlay={privacyMenu} trigger={["click"]}>
+      <Button style={{ float: "right" }}>
+        <Icon type="global" /> Privacy <Icon type="down" />
+      </Button>
+    </Dropdown>
+  );
+}
+
 function FeedAction() {
   return (
     <div>
       <Row>
         <Col span="12">
-          <CheckBox icon={<Icon type="notification" />} label="ฟีตข่าว" />
+          <CheckBox icon={<Icon type="notification" />} label="ฟีคข่าว" />
         </Col>
         <Col span="12">
           <PrivacySelector />
@@ -71,6 +72,7 @@ function FeedAction() {
     </div>
   );
 }
+
 function StoriesAction() {
   return (
     <div>
@@ -79,15 +81,14 @@ function StoriesAction() {
           <CheckBox
             icon={
               <ProfileImage
+                icon={<Icon type="plus" />}
                 size="x2"
-                src="http://tnews.teenee.com/politic/img3/258036.jpg"
-                icon="plus"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Mark_Zuckerberg_cropped.jpg/220px-Mark_Zuckerberg_cropped.jpg"
               />
             }
             label="เรื่องราวของฉัน"
           />
         </Col>
-
         <Col span="12">
           <PrivacySelector />
         </Col>
@@ -99,22 +100,20 @@ function StoriesAction() {
 function ShareAction() {
   return (
     <ViewFlex>
-      <ViewFlex className="gapRight">
-        <Dropdown trigger={["click"]}>
+      <ViewFlex className="gapRight" >
+        <Dropdown trigger={['click']}>
           <Button>
-            <Icon type="down" />
-            See More
+            <Icon type="down" /> See More
           </Button>
         </Dropdown>
       </ViewFlex>
       <ViewFlex fluid>
-        <Button type="primary" block>
-          แชร์
-        </Button>
+        <Button type="primary" block>แชร์</Button>
       </ViewFlex>
     </ViewFlex>
   );
 }
+
 function PostSection() {
   return (
     <Segment
@@ -126,7 +125,7 @@ function PostSection() {
           <ViewFlex>
             <ProfileImage
               size="x3"
-              src="http://tnews.teenee.com/politic/img3/258036.jpg"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Mark_Zuckerberg_cropped.jpg/220px-Mark_Zuckerberg_cropped.jpg"
             />
           </ViewFlex>
           <ViewFlex fluid>
@@ -136,7 +135,7 @@ function PostSection() {
             />
           </ViewFlex>
         </ViewFlex>
-        <ViewFlex margin={false}>{renderPostOption(postOption)}</ViewFlex>
+        <ViewFlex margin={false}>{renderPostOptions(postOptions)}</ViewFlex>
       </ViewFlex>
     </Segment>
   );

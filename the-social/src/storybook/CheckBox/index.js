@@ -11,6 +11,7 @@ function CheckBoxPlayGround() {
   };
   return (
     <CheckBox
+      name="something"
       checked={checked}
       onChange={onChange}
       icon={<Icon type="user" />}
@@ -18,15 +19,18 @@ function CheckBoxPlayGround() {
     />
   );
 }
+
 storiesOf("Checkbox", module)
-  .add("with label", () => <CheckBox label="Hello " />)
-  .add("with Prefix icon", () => (
+  .add("with label", () => <CheckBox label="hello" />)
+  .add("with prefix icon", () => (
     <CheckBox icon={<Icon type="user" />} label="Hello Icon" />
   ))
   .add("with prefix profile image", () => (
     <CheckBox
       icon={<ProfileImage size="x2" icon={<Icon type="plus" />} />}
-      label="Kittisak"
+      label="Worapol Buraphan"
     />
   ))
-  .add("play ground", () => <CheckBoxPlayGround />);
+  .add("play ground", () => (
+      <CheckBoxPlayGround />
+  ));
