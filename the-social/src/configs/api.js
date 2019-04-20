@@ -1,6 +1,6 @@
 const endpoints = {
-  baseURI: "http://localhost:3333",
-  baseAPI: "http://localhost:3333"
+  baseURI: "http://34.74.91.102",
+  baseAPI: "http://34.74.91.102"
 };
 
 function ReqError(message, status) {

@@ -4,7 +4,7 @@ import Button from "components/Button";
 import Input from "components/Input";
 import { API } from "configs";
 import { Link } from "react-router-dom";
-import history from 'routes/history';
+import history from "routes/history";
 import "./styles.scss";
 
 const onChange = setter => e => {
@@ -44,10 +44,13 @@ function onSigin(email, password) {
 }
 
 function gotoSignUp() {
-  history.push('/signup');
+  history.push("/signup");
 }
 
-function SignIn() {
+function SignIn({ onLogin }) {
+  if (typeof onLogin !== "function") {
+    onLogin = function() {};
+  }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const inputFields = [
@@ -73,7 +76,7 @@ function SignIn() {
         {renderForm(inputFields)}
         <Row>
           <Col span={12} className="col">
-            <Button block type="primary">
+            <Button block type="primary" onClick={onLogin(email, password)}>
               Sign in
             </Button>
           </Col>
