@@ -1,0 +1,36 @@
+.postHeader {
+  .view.profileImage {
+    margin-right: 10px;
+  }
+  .view.right {
+    .username {
+      font-size: 1.1em;
+    }
+  }
+  border-bottom: 1px solid #dcdcdc;
+}
+.postText {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.postAction {
+  margin: -8px -13px;
+  .postButton {
+    cursor: pointer;
+    display: flex;
+    flex: 1;
+    background-color: #dcdcdc;
+    padding: 10px 10px;
+    line-height: 100%;
+    justify-content: center; // horizontal
+    align-items: center; // vertical
+    transition: all 0.03s ease-in-out;
+    .icon {
+      margin-right: 10px;
+    }
+    &:hover {
+      filter: brightness(0.98);
+    }
+  }
+}
