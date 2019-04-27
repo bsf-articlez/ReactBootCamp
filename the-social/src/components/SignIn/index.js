@@ -4,7 +4,7 @@ import Button from "components/Button";
 import Input from "components/Input";
 import { API } from "configs";
 import { Link } from "react-router-dom";
-import history from "routes/history";
+import history from 'routes/history';
 import "./styles.scss";
 
 const onChange = setter => e => {
@@ -44,12 +44,14 @@ function onSigin(email, password) {
 }
 
 function gotoSignUp() {
-  history.push("/signup");
+  history.push('/signup');
 }
 
-function SignIn({ onLogin }) {
-  if (typeof onLogin !== "function") {
-    onLogin = function() {};
+function SignIn({onLogin}) {
+  if(typeof onLogin !== 'function'){
+    onLogin = () => () => {} 
+    // เป็นค่าเริ่มต้น เพื่อที่จะสามารถให้ onclick 
+    // สามารถทำงานได้ ปรกติแม้ไม่ได้ใส่ function เข้ามาใน onLogin
   }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

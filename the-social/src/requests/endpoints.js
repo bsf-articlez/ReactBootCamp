@@ -1,4 +1,7 @@
 const LOGIN = "/auth/local";
-const REGISTER = "/auth/local/register";
+const REGISTER = "/auth/register";
 
-export default { LOGIN, REGISTER };
+export default {
+  LOGIN,
+  REGISTER
+}
